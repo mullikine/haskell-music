@@ -113,7 +113,7 @@ play = do
   -- _ <- runCommand $ printf "ffplay -autoexit -showmode 1 -f f32le -ar %f %s" sampleRate outputFilePath
   -- If I run runhaskell I can see that profile is not being sourced
   -- cd "$MYGIT/tsoding/haskell-music"; runhaskell Main.hs
-  _ <- runCommand $ printf "bash -c \" /home/shane/.profile; sps cava; ffplay -autoexit -showmode 0 -f f32le -ar %f %s\"" sampleRate outputFilePath
+  _ <- runCommand $ printf "/bin/bash -c \". ~/.profile; sps cava; ffplay -autoexit -showmode 0 -f f32le -ar %f %s\"" sampleRate outputFilePath
   return ()
 
 main :: IO ()
