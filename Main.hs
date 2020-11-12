@@ -110,7 +110,8 @@ save filePath = B.writeFile filePath $ B.toLazyByteString $ fold $ map B.floatLE
 play :: IO ()
 play = do
   save outputFilePath
-  _ <- runCommand $ printf "ffplay -autoexit -showmode 1 -f f32le -ar %f %s" sampleRate outputFilePath
+  -- _ <- runCommand $ printf "ffplay -autoexit -showmode 1 -f f32le -ar %f %s" sampleRate outputFilePath
+  _ <- runCommand $ printf "bash -c \"sps cava; ffplay -autoexit -showmode 0 -f f32le -ar %f %s\"" sampleRate outputFilePath
   return ()
 
 main :: IO ()
