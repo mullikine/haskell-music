@@ -1,0 +1,23 @@
+
+./Main.hs,485
+module Main Main0,1
+type Pulse Pulse9,10
+type Seconds Seconds10,11
+type Samples Samples11,12
+type Hz Hz12,13
+type Semitones Semitones13,14
+type Beats Beats14,15
+outputFilePath outputFilePath16,17
+volume volume19,20
+sampleRate sampleRate22,23
+pitchStandard pitchStandard25,26
+bpm bpm28,29
+beatDuration beatDuration31,32
+f f35,36
+note note38,39
+freq freq41,42
+wave wave56,57
+hehehe hehehe93,94
+save save106,107
+play play109,110
+main main115,116
