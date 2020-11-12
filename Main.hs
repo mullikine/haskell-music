@@ -1,11 +1,11 @@
 module Main where
 
-import qualified Data.ByteString.Lazy as B
 import qualified Data.ByteString.Builder as B
-import Data.Foldable
-import System.Process
-import Text.Printf
-import Data.List
+import qualified Data.ByteString.Lazy    as B
+import           Data.Foldable
+import           Data.List
+import           System.Process
+import           Text.Printf
 
 type Pulse = Float
 type Seconds = Float
@@ -114,4 +114,5 @@ play = do
   return ()
 
 main :: IO ()
-main = save outputFilePath
+main = play
+-- main = save outputFilePath
