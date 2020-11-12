@@ -122,7 +122,7 @@ play = do
   -- vim +/"direnv hook zsh" "$HOME/.shell_environment"
   -- This is how I need to invoke commands in haskell
   --_ <- runCommand $ printf "/bin/bash -c \"set -xv; export SHELL=bash; source ~/.profile || :; which sps cava; ffplay -autoexit -showmode 0 -f f32le -ar %f %s\"" sampleRate outputFilePath
-  _ <- runCommand $ printf "/bin/bash -c \"export SHELL=bash; source ~/.profile || :; which sps cava; ffplay -autoexit -showmode 0 -f f32le -ar %f %s\"" sampleRate outputFilePath
+  _ <- runCommand $ printf "/bin/bash -c \"export SHELL=bash; source ~/.profile || :; sps cava; ffplay -autoexit -showmode 0 -f f32le -ar %f %s\"; killall cava" sampleRate outputFilePath
   return ()
 
 main :: IO ()
