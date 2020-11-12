@@ -113,7 +113,15 @@ play = do
   -- _ <- runCommand $ printf "ffplay -autoexit -showmode 1 -f f32le -ar %f %s" sampleRate outputFilePath
   -- If I run runhaskell I can see that profile is not being sourced
   -- cd "$MYGIT/tsoding/haskell-music"; runhaskell Main.hs
-  _ <- runCommand $ printf "/bin/bash -c \". ~/.profile; sps cava; ffplay -autoexit -showmode 0 -f f32le -ar %f %s\"" sampleRate outputFilePath
+  -- After sourcing, for some reason the remaining commands do not run.
+  -- Perhaps it's a timing thing?
+  --
+  -- # This, in .profile appears to break haskell's runCommand.
+  -- source $HOME/.shell_environment
+  -- # This is the line that was breaking it
+  -- vim +/"direnv hook zsh" "$HOME/.shell_environment"
+
+  _ <- runCommand $ printf "/bin/bash -c \"set -xv; export SHELL=bash; source ~/.profile || :; which sps cava; ffplay -autoexit -showmode 0 -f f32le -ar %f %s\"" sampleRate outputFilePath
   return ()
 
 main :: IO ()
